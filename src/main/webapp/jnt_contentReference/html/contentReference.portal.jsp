@@ -16,6 +16,24 @@
 <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
-<template:module node="${currentNode.properties['j:node'].node}" view="portal">
-    <template:param name="widgetContentId" value="${currentResource.moduleParams.widgetContentId}"/>
-</template:module>
+<jcr:node var="subchild" path="${currentNode.properties['j:node'].node.path}"/>
+<c:if test="${jcr:isNodeType(subchild, 'jnt:contentList')}">
+    <c:choose>
+        <c:when test="${jcr:isNodeType(subchild, 'jmix:gadget')}"><template:module
+                node="${subchild}"/></c:when>
+        <c:otherwise>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $.get('<c:url value="${url.base}${subchild.path}.html.ajax"/>', null, function(data) {
+                        $("#${currentResource.moduleParams.widgetContentId}").html(data);
+                    });
+                });
+            </script>
+        </c:otherwise>
+    </c:choose>
+</c:if>
+<c:if test="${!jcr:isNodeType(subchild, 'jnt:contentList')}">
+    <template:module node="${subchild}" view="portal">
+        <template:param name="widgetContentId" value="${currentResource.moduleParams.widgetContentId}"/>
+    </template:module>
+</c:if>
