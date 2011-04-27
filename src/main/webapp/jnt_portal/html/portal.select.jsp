@@ -14,7 +14,7 @@
                 <c:set var="widgetTitle" value="${functions:removeHtmlTags(node.displayableName)}"/>
                 <li>
                     <div onclick="addWidget('${node.path}','${node.name}')">
-                        <span>${fn:substring(widgetTitle, 0,40) + fn:length(widgetTitle) > 40?" ...":""}</span>
+                        <span>${fn:substring(widgetTitle, 0,40)} ${fn:length(widgetTitle) > 40?" ...":""}</span>
                     </div>
                 </li>
             </c:forEach>
