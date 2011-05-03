@@ -18,7 +18,7 @@
     <c:forEach items="${currentNode.nodes}" var="subchild">
         <li class="widget color-box" id="${subchild.path}">
             <div class="widget-head">
-                <h3><jcr:nodeProperty node="${subchild}" name='jcr:title'/></h3>
+                <h3>${subchild.displayableName}</h3>
             </div>
             <div class="widget-content" id="widget${subchild.UUID}">
                 <template:module node="${subchild}" view="portal">
