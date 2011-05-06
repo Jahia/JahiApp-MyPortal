@@ -31,7 +31,7 @@
 
             function addRSSWidget() {
                 var data = {};
-                data["nodeType"] = "jnt:rss";
+                data["jcrNodeType"] = "jnt:rss";
                 data["url"] = $("#feedUrl").val();
                 data["nbEntries"] = $("#nbFeeds").val();
                 $.post("<c:url value='${url.base}${currentNode.path}/column1/*'/>", data, function(data) {
@@ -41,7 +41,7 @@
 
             function addScriptWidget() {
                 var data = {};
-                data["nodeType"] = "jnt:scriptGadget";
+                data["jcrNodeType"] = "jnt:scriptGadget";
                 data["script"] = $("#scriptGadget").val();
                 $.post("<c:url value='${url.base}${currentNode.path}/column1/*'/>", data, function(data) {
                     window.location.reload();
