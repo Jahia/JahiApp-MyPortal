@@ -193,22 +193,25 @@ var iNettuts = {
             beforeStop: function(event, ui) {
                 var data = {};
                 data["source"]=ui.item[0].id;
-                if (ui.placeholder[0].nextElementSibling) {
-                    data["target"]= ui.placeholder[0].nextElementSibling.id;
+                if (ui.placeholder[0].nextSibling && ui.placeholder[0].nextSibling.attributes) {
+                    data["target"]= ui.placeholder[0].nextSibling.id;
                     data["action"] = "moveBefore";
-                } else if (ui.placeholder[0].previousElementSibling) {
-                    str = ui.placeholder[0].parentNode.firstElementChild.id;
+                } else if (ui.placeholder[0].nextSibling && ui.placeholder[0].nextSibling.nextSibling) {
+                    data["target"]= ui.placeholder[0].nextSibling.nextSibling.id;
+                    data["action"] = "moveBefore";
+                } else if (ui.placeholder[0].previousSibling) {
+                    str = ui.placeholder[0].parentNode.children[0].id;
                     str = str.substr(0,str.lastIndexOf("/"));
-                    if (ui.placeholder[0].parentNode.childElementCount < 3) {
+                    if (ui.placeholder[0].parentNode.children.length < 3) {
                         str = str.substr(0,str.lastIndexOf("/")) + "/" + ui.placeholder[0].parentNode.id;
                     }
                     data["target"] = str;
                     data["action"] = "moveAfter";
                 }
-                url = this.baseURI.substr(0,this.baseURI.lastIndexOf("/"));
-                node = this.baseURI.substr(this.baseURI.lastIndexOf("/"),this.baseURI.substr(this.baseURI.lastIndexOf("/")).indexOf("."));
+                url = document.URL.substr(0,document.URL.lastIndexOf("/"));
+                node = document.URL.substr(document.URL.lastIndexOf("/"),document.URL.substr(document.URL.lastIndexOf("/")).indexOf("."));
                 $.post(url+node+".move.do", data, function(result) {
-                    
+                    ui.item[0].id= data["target"] + ui.item[0].id.substr(ui.item[0].id.lastIndexOf("/"),ui.item[0].id.length);
                 }, "json");
             }
         });
