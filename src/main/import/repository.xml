@@ -19,7 +19,6 @@
         </profile-page-items>
         <defaultPortal columns="3" componentsFolder="/templateSets/portal/contents/portal-components" jcr:primaryType="jnt:portal">
           <column1 jcr:primaryType="jnt:contentList">
-            <my-pages j:node="/templateSets/portal/contents/portal-components/my-pages" jcr:primaryType="jnt:contentReference" />
           </column1>
           <column2 jcr:primaryType="jnt:contentList">
           </column2>
