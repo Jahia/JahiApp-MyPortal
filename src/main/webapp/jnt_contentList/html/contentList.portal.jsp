@@ -33,7 +33,10 @@
             key="label.portal.column"/>&nbsp;${fn:substring(currentNode.name,6,7)}</li>
     <c:forEach items="${currentNode.nodes}" var="subchild">
         <li class="widget color-box" id="${subchild.path}">
-            <template:module node="${subchild}"/>
+            <jcr:node var="n" path="${subchild.properties['j:node'].node}"/>
+            <c:if test="${!empty n}">
+                <template:module node="${subchild}"/>
+            </c:if>
         </li>
     </c:forEach>
     <li>

@@ -17,7 +17,7 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 <jcr:node var="subchild" path="${currentNode.properties['j:node'].node.path}"/>
-<c:if test="${jcr:isNodeType(subchild, 'jnt:contentList')}">
+<c:if test="${!empty subchild and jcr:isNodeType(subchild, 'jnt:contentList')}">
     <c:choose>
         <c:when test="${jcr:isNodeType(subchild, 'jmix:gadget')}"><template:module
                 node="${subchild}"/></c:when>
@@ -32,7 +32,7 @@
         </c:otherwise>
     </c:choose>
 </c:if>
-<c:if test="${!jcr:isNodeType(subchild, 'jnt:contentList')}">
+<c:if test="${!empty subchild and !jcr:isNodeType(subchild, 'jnt:contentList')}">
     <template:module node="${subchild}" view="portal">
         <template:param name="widgetContentId" value="${currentResource.moduleParams.widgetContentId}"/>
     </template:module>
