@@ -46,6 +46,13 @@
     <name>Jahia Portal</name>
     <packaging>war</packaging>
     <description>This is a custom module for running on a Jahia server.</description>
+
+    <scm>
+        <connection>scm:git:git@github.com:Jahia/JahiApp-MyPortal.git</connection>
+        <url>scm:git:git@github.com:Jahia/JahiApp-MyPortal.git</url>
+        <developerConnection>scm:git:git@github.com:Jahia/JahiApp-MyPortal.git</developerConnection>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>org.jahia.server</groupId>
