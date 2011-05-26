@@ -12,16 +12,18 @@
         <h3>Add Components</h3>
         <ul class="panellist">
             <c:forEach items="${widgets.nodes}" var="node" varStatus="status">
-                <c:set var="widgetTitle" value="${functions:removeHtmlTags(node.displayableName)}"/>
-                <li>
-                    <div onclick="addWidget('${node.path}','${node.name}')">
-                        <span>${fn:substring(widgetTitle, 0,40)} ${fn:length(widgetTitle) > 40?" ...":""}</span>
-                    </div>
-                </li>
+                <c:if test="${!jcr:isNodeType(node, 'jnt:acl' )}">
+                    <c:set var="widgetTitle" value="${functions:removeHtmlTags(node.displayableName)}"/>
+                    <li>
+                        <div onclick="addWidget('${node.path}','${node.name}')">
+                            <span>${fn:substring(widgetTitle, 0,40)} ${fn:length(widgetTitle) > 40?" ...":""}</span>
+                        </div>
+                    </li>
+                </c:if>
             </c:forEach>
         </ul>
     </div>
-        <div class="left">
+    <div class="left">
         <h3>Add RSS</h3>
         <form class="Form" action="" method="post">
             <p>
