@@ -4,7 +4,7 @@
 <%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <template:addResources type="css" resources="portal.css"/>
-<template:addResources type="javascript" resources="jquery.js,jquery-ui.min.js,inettuts.js"/>
+<template:addResources type="javascript" resources="jquery.min.js,jquery-ui.min.js,inettuts.js"/>
 <jcr:node path="${param['path']}" var="widgets"/>
 <template:addCacheDependency flushOnPathMatchingRegexp="${widgets.path}/.*" />
 <div class="content clearfix">
