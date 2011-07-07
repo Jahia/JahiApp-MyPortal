@@ -76,7 +76,7 @@
         </div>
 
 
-        <p class="slide"><a href="#" class="btn-slide">Add Widget</a></p>
+        <p class="slide"><a href="#" class="btn-slide"><fmt:message key="label.portal.addWidget"/></a></p>
     </c:if>
     <div id="columns">
         <c:forEach var="column" begin="1" end="${currentNode.properties.columns.string}">
