@@ -40,9 +40,12 @@
 
 package org.jahia.modules.portal;
 
+import org.jahia.ajax.gwt.client.service.GWTJahiaServiceException;
 import org.jahia.ajax.gwt.helper.ContentManagerHelper;
 import org.jahia.bin.Action;
 import org.jahia.bin.ActionResult;
+import org.jahia.services.content.JCRContentUtils;
+import org.jahia.services.content.JCRNodeWrapper;
 import org.jahia.services.content.JCRSessionFactory;
 import org.jahia.services.content.JCRSessionWrapper;
 import org.jahia.services.render.RenderContext;
@@ -50,6 +53,7 @@ import org.jahia.services.render.Resource;
 import org.jahia.services.render.URLResolver;
 import org.json.JSONObject;
 
+import javax.jcr.RepositoryException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
@@ -77,7 +81,22 @@ public class CloneAction extends Action {
         String targetPath = req.getParameter("target");
         String newName = req.getParameter("newName");
         JCRSessionWrapper jcrSessionWrapper = JCRSessionFactory.getInstance().getCurrentUserSession(resource.getWorkspace(), resource.getLocale());
-        contentManager.copy(Arrays.asList(sourcePath),targetPath,null,false,false,true, false, jcrSessionWrapper);
+        try {
+            JCRNodeWrapper targetParent = jcrSessionWrapper.getNode(targetPath);
+
+            JCRNodeWrapper node = jcrSessionWrapper.getNode(sourcePath);
+            String name = newName != null ? newName : node.getName();
+            name = JCRContentUtils.findAvailableNodeName(targetParent, name);
+            
+            if (targetParent.hasPermission("jcr:addChildNodes") && !targetParent.isLocked()) {
+                final JCRNodeWrapper newNode = createNode(req, parameters, targetParent, "jnt:portletReference", name, true);
+                newNode.setProperty("j:node", node);
+                jcrSessionWrapper.save();
+            } 
+        } catch (RepositoryException e) {
+            throw new GWTJahiaServiceException(e.getMessage());
+        }
+        
         return new ActionResult(HttpServletResponse.SC_OK, null, new JSONObject());
     }
 }
