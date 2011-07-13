@@ -1,7 +1,7 @@
 <jnt = 'http://www.jahia.org/jahia/nt/1.0'>
 
 [jnt:portal] > jmix:siteComponent, jnt:content, mix:title
- - componentsFolder (weakreference, picker[type="portletFolder"]) < jnt:portletFolder
+ - componentsFolder (weakreference, picker) < jnt:contentFolder
  - columns (long) = 3 autocreated
  + column1 (jnt:contentList) = jnt:contentList autocreated
  + column2 (jnt:contentList) = jnt:contentList autocreated
