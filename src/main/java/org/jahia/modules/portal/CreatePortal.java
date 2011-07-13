@@ -54,6 +54,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Rendering action used for handling the creation of a new portal.
+ *  
  * User: toto
  * Date: 2/11/11
  * Time: 14:17

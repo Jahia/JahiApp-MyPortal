@@ -58,6 +58,7 @@ import java.util.Map;
 
 
 /**
+ * Render action that is responsible for adding a component into the portal. 
  * User: david
  * Date: Feb 11, 2010
  * Time: 6:09:21 PM
@@ -73,7 +74,6 @@ public class CloneAction extends Action {
                                   JCRSessionWrapper session, Map<String, List<String>> parameters, URLResolver urlResolver) throws Exception {
         String sourcePath = req.getParameter("source");
         String targetPath = req.getParameter("target");
-        String newName = req.getParameter("newName");
         JCRSessionWrapper jcrSessionWrapper = JCRSessionFactory.getInstance().getCurrentUserSession(resource.getWorkspace(), resource.getLocale());
         contentManager.copy(Arrays.asList(sourcePath),targetPath,null,false,false,true, false, jcrSessionWrapper);
         return new ActionResult(HttpServletResponse.SC_OK, null, new JSONObject());
