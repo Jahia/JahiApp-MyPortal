@@ -58,11 +58,9 @@ import java.util.Map;
 
 
 /**
- * Created by IntelliJ IDEA.
  * User: david
  * Date: Feb 11, 2010
  * Time: 6:09:21 PM
- * To change this template use File | Settings | File Templates.
  */
 public class CloneAction extends Action {
     private ContentManagerHelper contentManager;

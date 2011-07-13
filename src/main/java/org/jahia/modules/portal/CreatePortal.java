@@ -54,11 +54,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by IntelliJ IDEA.
  * User: toto
  * Date: 2/11/11
  * Time: 14:17
- * To change this template use File | Settings | File Templates.
  */
 public class CreatePortal extends Action {
 
