@@ -7,7 +7,7 @@
 <template:addResources type="css" resources="portal.css"/>
 <template:addResources type="javascript" resources="jquery.min.js,jquery-ui.min.js,inettuts.js"/>
 <jcr:node path="${param['path']}" var="widgets"/>
-<template:addCacheDependency flushOnPathMatchingRegexp="${widgets.path}/.*" />
+<template:addCacheDependency flushOnPathMatchingRegexp="\Q${widgets.path}\E/.*" />
 <div class="content clearfix">
     <div class="left">
         <h3><fmt:message key="label.portal.addComponents"/></h3>
