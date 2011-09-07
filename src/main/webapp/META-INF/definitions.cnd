@@ -12,5 +12,5 @@
 [jnt:scriptGadget] > jnt:content, mix:title, jmix:siteComponent, jmix:gadget
  - script (string) mandatory indexed=no
 
-[jnt:currentUserPortal] > jmix:siteComponent, jmix:bindedComponent
+[jnt:currentUserPortal] > jmix:siteComponent, jmix:bindedComponent, jmix:studioOnly
  - defaultPortal (weakreference, picker[type="portal"]) < jnt:portal
