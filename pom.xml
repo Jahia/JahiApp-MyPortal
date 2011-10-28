@@ -43,7 +43,7 @@
     <parent>
         <artifactId>jahia-modules</artifactId>
         <groupId>org.jahia.modules</groupId>
-        <version>6.5.1.0</version>
+        <version>6.6.0.0-SNAPSHOT</version>
     </parent>
     <groupId>org.jahia.modules</groupId>
     <artifactId>portal</artifactId>
@@ -58,20 +58,6 @@
         <developerConnection>scm:git:git@github.com:Jahia/JahiApp-MyPortal.git</developerConnection>
     </scm>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.jahia.server</groupId>
-            <artifactId>jahia-impl</artifactId>
-            <version>6.5.1.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jahia.server</groupId>
-            <artifactId>jahia-taglib</artifactId>
-            <version>6.5.1.0</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
     <build>
         <plugins>
             <plugin>
