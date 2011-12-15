@@ -22,7 +22,8 @@
             </div>
             <div class="widget-content" id="widget${subchild.UUID}">
                 <template:module node="${subchild}" view="portal">
-                    <template:param name="widgetContentId" value="widget${subchild.UUID}"/>
+                    <template:param name="widgetContentId" value="${subchild.UUID}"/>
+                    <template:param name="widgetContentPrefix" value="widget"/>
                 </template:module>
             </div>
         </li>

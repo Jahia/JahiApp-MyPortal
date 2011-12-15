@@ -16,6 +16,7 @@
 <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
+<template:addCacheDependency uuid="${currentResource.moduleParams.widgetContentId}"/>
 <c:choose>
     <c:when test="${jcr:isNodeType(currentNode, 'jmix:gadget')}"><template:module
             node="${currentNode}"/></c:when>
@@ -23,7 +24,7 @@
         <script type="text/javascript">
             $(document).ready(function() {
                 $.get('<c:url value="${url.base}${currentNode.path}.html.ajax"/>', null, function(data) {
-                    $("#${currentResource.moduleParams.widgetContentId}").html(data);
+                    $("#${currentResource.moduleParams.widgetContentPrefix}${currentResource.moduleParams.widgetContentId}").html(data);
                 });
             });
         </script>

@@ -62,9 +62,10 @@ var iNettuts = {
                         });
                         var data = {};
                         data["jcrMethodToCall"] = "delete";
-                        data["source"] = this.parentNode.parentNode.id;
-                        $.post(baseUrl+this.parentNode.parentNode.id, data, function(result) {
-                            alert("node " + this.parentNode.parentNode.id + "is deleted");
+                        var id = this.parentNode.parentNode.id;
+                        data["source"] = id;
+                        $.post(baseUrl+id, data, function(result) {
+                            alert("node " + id + " is deleted");
                         }, "json");
                     }
                     return false;
