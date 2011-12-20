@@ -14,6 +14,10 @@
         <ul class="panellist">
             <c:forEach items="${widgets.nodes}" var="node" varStatus="status">
                 <c:if test="${!jcr:isNodeType(node, 'jnt:acl' )}">
+                    <c:if test="${jcr:isNodeType(node, 'jmix:nodeReference')}">
+                        <%-- Add dependency to references --%>
+                        <template:addCacheDependency uuid="${node.properties['j:node'].string}"/>
+                    </c:if>
                     <c:set var="widgetTitle" value="${functions:removeHtmlTags(node.displayableName)}"/>
                     <li>
                         <div ondblclick="addWidget('${node.path}','${node.name}')">
