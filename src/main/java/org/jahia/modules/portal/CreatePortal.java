@@ -41,6 +41,7 @@
 package org.jahia.modules.portal;
 
 import org.apache.bsf.utils.http.HttpScriptResponse;
+import org.apache.commons.lang.StringUtils;
 import org.jahia.bin.Action;
 import org.jahia.bin.ActionResult;
 import org.jahia.services.content.JCRNodeWrapper;
@@ -66,8 +67,9 @@ public class CreatePortal extends Action {
     public ActionResult doExecute(HttpServletRequest req, RenderContext renderContext, Resource resource, JCRSessionWrapper session, Map<String, List<String>> parameters, URLResolver urlResolver) throws Exception {
         String portalPath = parameters.get("portalPath").get(0);
         resource.getNode().checkout();
-        if (parameters.get("defaultPortal") != null && parameters.get("defaultPortal").size() > 0) {
-            JCRNodeWrapper portal = session.getNodeByUUID(parameters.get("defaultPortal").get(0));
+        String defaultPortal = parameters.get("defaultPortal") != null && parameters.get("defaultPortal").size() > 0 ? parameters.get("defaultPortal").get(0) : null;
+        if (StringUtils.isNotEmpty(defaultPortal)) {
+            JCRNodeWrapper portal = session.getNodeByUUID(defaultPortal);
             portal.copy(resource.getNode(), portalPath, false);
         } else {
             resource.getNode().addNode(portalPath, "jnt:portal");
