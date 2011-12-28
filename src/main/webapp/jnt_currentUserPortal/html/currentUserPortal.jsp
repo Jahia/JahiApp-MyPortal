@@ -10,14 +10,15 @@
 <c:if test="${empty user or not jcr:isNodeType(user, 'jnt:user')}">
     <jcr:node var="user" path="${renderContext.user.localPath}"/>
 </c:if>
-<jcr:node var="portal" path="${user.path}/myportal${fn:replace(renderContext.mainResource.node.path,'/','_')}"/>
+<c:set var="portalPath" value="myportal${fn:replace(renderContext.mainResource.node.path,'/','_')}"/>
+<jcr:node var="portal" path="${user.path}/${portalPath}"/>
 
 <c:set var="writeable" value="${currentResource.workspace eq 'live'}"/>
 <c:if test="${writeable}">
     <c:if test="${empty portal}">
         <form action="<c:url value='${url.base}${user.path}.createPortal.do'/>"
               method="post">
-            <input type="hidden" name="portalPath" value="myportal${fn:replace(renderContext.mainResource.node.path,'/','_')}"/>
+            <input type="hidden" name="portalPath" value="${portalPath}"/>
             <input type="hidden" name="jcrRedirectTo" value="<c:url value='${url.base}${renderContext.mainResource.node.path}'/>"/>
             <input type="hidden" name="defaultPortal" value="${currentNode.properties['defaultPortal'].string}"/>
             <c:set var="ps" value=""/>
@@ -31,7 +32,7 @@
             </c:forEach>
 
             <input type="hidden" name="jcrNewNodeOutputFormat" value="user-portal.html${ps}"/>
-            <h4>Create my portal :</h4> <input class="button" type="submit" name="jcrSubmit">
+            <h4><fmt:message key="label.portal.create"/>:</h4> <input class="button" type="submit" name="jcrSubmit" value="<fmt:message key='label.submit'/>"/>
         </form>
     </c:if>
     <c:if test="${not empty portal}">
