@@ -48,7 +48,7 @@
     <groupId>org.jahia.modules</groupId>
     <artifactId>portal</artifactId>
     <version>1.2-SNAPSHOT</version>
-    <name>Jahia Portal</name>
+    <name>Jahia My Portal</name>
     <packaging>war</packaging>
     <description>This is a custom module for running on a Jahia server.</description>
 
