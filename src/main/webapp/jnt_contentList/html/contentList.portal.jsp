@@ -16,6 +16,14 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 <c:if test="${!renderContext.editMode}">
     <c:forEach items="${currentNode.nodes}" var="subchild">
+        <template:addCacheDependency uuid="${subchild.identifier}"/>
+        <c:if test="${jcr:isNodeType(subchild, 'jmix:nodeReference')}">
+            <template:addCacheDependency uuid="${subchild.properties['j:node'].string}"/>
+            <c:set var="subSubChild" value="${subchild.contextualizedNode}"/>
+            <c:if test="${jcr:isNodeType(subSubChild, 'jmix:nodeReference')}">
+                <template:addCacheDependency uuid="${subSubChild.properties['j:node'].string}"/>
+            </c:if>
+        </c:if>
         <li class="widget color-box" id="${subchild.path}">
             <div class="widget-head">
                 <h3>${subchild.displayableName}</h3>

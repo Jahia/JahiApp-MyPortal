@@ -17,15 +17,16 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 <jcr:node var="subchild" path="${currentNode.properties['j:node'].node.path}"/>
+<template:addCacheDependency uuid="${currentResource.moduleParams.widgetContentId}"/>
+<template:addCacheDependency uuid="${currentNode.properties['j:node'].string}"/>
 <c:if test="${!empty subchild and jcr:isNodeType(subchild, 'jnt:contentList')}">
-    <template:addCacheDependency uuid="${currentResource.moduleParams.widgetContentId}"/>
     <c:choose>
         <c:when test="${jcr:isNodeType(subchild, 'jmix:gadget')}"><template:module
                 node="${subchild}"/></c:when>
         <c:otherwise>
             <script type="text/javascript">
-                $(document).ready(function() {
-                    $.get('<c:url value="${url.base}${subchild.path}.html.ajax"/>', null, function(data) {
+                $(document).ready(function () {
+                    $.get('<c:url value="${url.base}${subchild.path}.html.ajax"/>', null, function (data) {
                         $("#${currentResource.moduleParams.widgetContentPrefix}${currentResource.moduleParams.widgetContentId}").html(data);
                     });
                 });
@@ -34,6 +35,10 @@
     </c:choose>
 </c:if>
 <c:if test="${!empty subchild and !jcr:isNodeType(subchild, 'jnt:contentList')}">
+    <c:if test="${jcr:isNodeType(subchild, 'jmix:nodeReference')}">
+        <c:set var="subSubChild" value="${subchild.contextualizedNode}"/>
+        <template:addCacheDependency uuid="${subSubChild.identifier}"/>
+    </c:if>
     <template:module node="${subchild}" view="portal">
         <template:param name="widgetContentId" value="${currentResource.moduleParams.widgetContentId}"/>
         <template:param name="widgetContentPrefix" value="${currentResource.moduleParams.widgetContentPrefix}"/>
