@@ -1,72 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<content xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:jnt="http://www.jahia.org/jahia/nt/1.0" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:jmix="http://www.jahia.org/jahia/mix/1.0" xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:rep="internal">
+<content xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:test_templates="http://www.jahia.org/jahia/test_templates/nt/1.0" xmlns:jnt="http://www.jahia.org/jahia/nt/1.0" xmlns:test="http://www.apache.org/jackrabbit/test" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:jmix="http://www.jahia.org/jahia/mix/1.0" xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:rep="internal">
   <templateSets jcr:primaryType="jnt:templateSets">
-   <portal changefreq="monthly" j:dependencies="templates-system" j:installedModules="portal" j:siteType="profileModule" j:title="My Space - My Portal" j:wcagCompliance="true" jcr:mixinTypes="jmix:sitemap" jcr:primaryType="jnt:virtualsite" priority="0.5">
-      <portlets jcr:primaryType="jnt:portletFolder" />
-      <files jcr:primaryType="jnt:folder" />
-      <contents jcr:primaryType="jnt:contentFolder">
-        <portal-components jcr:primaryType="jnt:contentFolder">
-          <j:translation_en jcr:language="en" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="Portal components" />
-          <my-pages j:classname="userMyContentList" j:criteria="jcr:created" j:skin="skins.custom" j:sortDirection="asc" j:type="jnt:page" j:view="linkList" jcr:mixinTypes="jmix:renderable jmix:skinnable jmix:customSkin" jcr:primaryType="jnt:userContentRetrieval" maxItems="10">
-            <j:translation_en jcr:language="en" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="My Pages" />
-            <j:translation_fr jcr:language="fr" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="Mes Pages" />
+    <portal changefreq="monthly" j:dependencies="default profile" j:installedModules="Jahia My Portal" j:originWS="default" j:siteType="profileModule" j:title="Jahia My Portal" j:wcagCompliance="true" jcr:mixinTypes="jmix:sitemap" jcr:primaryType="jnt:virtualsite" priority="0.5">
+      <portlets j:originWS="default" jcr:primaryType="jnt:portletFolder"/>
+      <files j:originWS="default" jcr:primaryType="jnt:folder"/>
+      <contents j:originWS="default" jcr:primaryType="jnt:contentFolder">
+        <portal-components j:originWS="default" jcr:primaryType="jnt:contentFolder">
+          <j:translation_en jcr:language="en" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="Portal components"/>
+          <my-pages j:classname="userMyContentList" j:criteria="jcr:created" j:originWS="default" j:skin="skins.custom" j:sortDirection="asc" j:type="jnt:page" j:view="linkList" jcr:mixinTypes="jmix:renderable jmix:skinnable jmix:customSkin" jcr:primaryType="jnt:userContentRetrieval" maxItems="10">
+            <j:translation_en jcr:language="en" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="My Pages"/>
+            <j:translation_fr jcr:language="fr" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="Mes Pages"/>
           </my-pages>
         </portal-components>
-        <profile-page-items jcr:primaryType="jnt:contentFolder">
-          <j:translation_en jcr:language="en" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="Profile Page Items" />
-          <portal divClass="user-portal" jcr:primaryType="jnt:componentLink" targetTemplate="user-portal">
-            <j:translation_en jcr:language="en" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="My Portal" />
-            <j:translation_fr jcr:language="fr" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="Mon Portail" />
+        <profile-page-items j:originWS="default" jcr:primaryType="jnt:contentFolder">
+          <j:translation_en jcr:language="en" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="Profile Page Items"/>
+          <portal divClass="user-portal" j:originWS="default" jcr:primaryType="jnt:componentLink" targetTemplate="user-portal">
+            <j:translation_en jcr:language="en" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="My Portal"/>
+            <j:translation_fr jcr:language="fr" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="Mon Portail"/>
           </portal>
         </profile-page-items>
-        <defaultPortal columns="3" componentsFolder="/templateSets/portal/contents/portal-components" jcr:primaryType="jnt:portal">
-          <column1 jcr:primaryType="jnt:contentList">
-          </column1>
-          <column2 jcr:primaryType="jnt:contentList">
-          </column2>
-          <column3 jcr:primaryType="jnt:contentList">
-          </column3>
-          <column4 jcr:primaryType="jnt:contentList" />
-          <column5 jcr:primaryType="jnt:contentList" />
+        <defaultPortal columns="3" componentsFolder="_x002f_templateSets_x002f_portal_x002f_contents_x002f_portal-components" j:originWS="default" jcr:primaryType="jnt:portal">
+          <column1 j:originWS="default" jcr:primaryType="jnt:contentList"/>
+          <column2 j:originWS="default" jcr:primaryType="jnt:contentList"/>
+          <column3 j:originWS="default" jcr:primaryType="jnt:contentList"/>
+          <column4 j:originWS="default" jcr:primaryType="jnt:contentList"/>
+          <column5 j:originWS="default" jcr:primaryType="jnt:contentList"/>
         </defaultPortal>
       </contents>
-      <templates j:rootTemplatePath="/base" jcr:primaryType="jnt:templatesFolder">
-        <files jcr:primaryType="jnt:folder">
-          <themes jcr:primaryType="jnt:folder">
-            <default jcr:primaryType="jnt:folder" />
+      <templates j:originWS="default" j:rootTemplatePath="/base" jcr:primaryType="jnt:templatesFolder">
+        <files j:originWS="default" jcr:primaryType="jnt:folder">
+          <themes j:originWS="default" jcr:primaryType="jnt:folder">
+            <default j:originWS="default" jcr:primaryType="jnt:folder"/>
           </themes>
-          <icons jcr:primaryType="jnt:folder">
-            <myportal.png j:height="64" j:width="64" jcr:mixinTypes="jmix:image" jcr:primaryType="jnt:file">
-              <jcr:content jcr:mimeType="image/png" jcr:primaryType="jnt:resource" />
-              <thumbnail jcr:mimeType="image/png" jcr:primaryType="jnt:resource" />
-              <thumbnail2 jcr:mimeType="image/png" jcr:primaryType="jnt:resource" />
+          <icons j:originWS="default" jcr:primaryType="jnt:folder">
+            <myportal.png j:height="64" j:originWS="default" j:width="64" jcr:mixinTypes="jmix:image" jcr:primaryType="jnt:file">
+              <jcr:content jcr:mimeType="image/png" jcr:primaryType="jnt:resource"/>
+              <thumbnail jcr:mimeType="image/png" jcr:primaryType="jnt:resource"/>
+              <thumbnail2 jcr:mimeType="image/png" jcr:primaryType="jnt:resource"/>
             </myportal.png>
           </icons>
         </files>
-        <contents jcr:primaryType="jnt:contentFolder" />
-        <user-portal j:applyOn="jnt:user" j:defaultTemplate="false" j:hiddenTemplate="false" j:priority="45" j:requiredPermissions="/permissions/repository-permissions/jcr:all_live/jcr:write_live" jcr:primaryType="jnt:contentTemplate">
-          <pagecontent jcr:primaryType="jnt:contentList">
-            <custom-rows-960gs-1 customColumn="15,1" jcr:primaryType="jnt:customRow" />
-            <custom-rows-960gs colNames="custom-rows-960gs-colContent" customColumn="16" jcr:primaryType="jnt:customRow" />
+        <contents j:originWS="default" jcr:primaryType="jnt:contentFolder"/>
+        <user-portal j:applyOn="jnt:user" j:defaultTemplate="false" j:hiddenTemplate="false" j:originWS="default" j:priority="45" j:requiredPermissions="_x0023__x002f_permissions_x002f_repository-permissions_x002f_jcr:all_live_x002f_jcr:write_live" jcr:primaryType="jnt:contentTemplate">
+          <pagecontent j:id="content" j:originWS="default" j:skin="skins.custom" jcr:mixinTypes="jmix:customSkin jmix:skinnable" jcr:primaryType="jnt:contentList">
+            <custom-rows-960gs-1 customColumn="15,1" j:originWS="default" jcr:primaryType="jnt:customRow"/>
+            <custom-rows-960gs colNames="custom-rows-960gs-colContent" customColumn="16" j:originWS="default" jcr:primaryType="jnt:customRow"/>
           </pagecontent>
-          <custom-rows-960gs-colContent jcr:primaryType="jnt:contentList">
-            <currentUserPortal defaultPortal="/templateSets/portal/contents/defaultPortal" j:bindedComponent="/templateSets/portal/templates/user-portal" jcr:primaryType="jnt:currentUserPortal" />
+          <custom-rows-960gs-colContent j:originWS="default" jcr:primaryType="jnt:contentList">
+            <currentUserPortal defaultPortal="_x002f_templateSets_x002f_portal_x002f_contents_x002f_defaultPortal" j:bindedComponent="_x002f_templateSets_x002f_portal_x002f_templates_x002f_user-portal" jcr:primaryType="jnt:currentUserPortal"/>
           </custom-rows-960gs-colContent>
-          <custom-rows-960gs-1-col1 jcr:primaryType="jnt:contentList">
-            <back-to-my-profile aClass="returnLink" divClass="divReturnLink" jcr:primaryType="jnt:componentLink" targetTemplate="user-home">
-              <j:translation_en jcr:language="en" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="back to my profile" />
-              <j:translation_fr jcr:language="fr" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="retour à mon profile" />
+          <custom-rows-960gs-1-col1 j:originWS="default" jcr:primaryType="jnt:contentList">
+            <back-to-my-profile aClass="returnLink" divClass="divReturnLink" j:originWS="default" jcr:primaryType="jnt:componentLink" targetTemplate="user-home">
+              <j:translation_en jcr:language="en" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="back to my profile"/>
+              <j:translation_fr jcr:language="fr" jcr:mixinTypes="mix:title" jcr:primaryType="jnt:translation" jcr:title="retour à mon profile"/>
             </back-to-my-profile>
           </custom-rows-960gs-1-col1>
-          <custom-rows-960gs-1-col2 jcr:primaryType="jnt:contentList">
-            <image-reference j:node="/templateSets/portal/templates/files/icons/myportal.png" jcr:primaryType="jnt:imageReference">
-              <j:translation_en j:alternateText="my portal icon" jcr:language="en" jcr:primaryType="jnt:translation" />
-              <j:translation_fr j:alternateText="my portal icon" jcr:language="fr" jcr:primaryType="jnt:translation" />
+          <custom-rows-960gs-1-col2 j:originWS="default" jcr:primaryType="jnt:contentList">
+            <image-reference j:node="_x002f_templateSets_x002f_portal_x002f_templates_x002f_files_x002f_icons_x002f_myportal.png" j:originWS="default" jcr:primaryType="jnt:imageReference">
+              <j:translation_en j:alternateText="my portal icon" jcr:language="en" jcr:primaryType="jnt:translation"/>
+              <j:translation_fr j:alternateText="my portal icon" jcr:language="fr" jcr:primaryType="jnt:translation"/>
             </image-reference>
           </custom-rows-960gs-1-col2>
         </user-portal>
       </templates>
+      <j:versionInfo j:deployementDate="2012-01-13T16:12:37.313+01:00" j:version="1.2-SNAPSHOT" jcr:primaryType="jnt:versionInfo"/>
+      <components j:originWS="default" jcr:primaryType="jnt:componentFolder">
+        <jmix:siteComponent j:originWS="default" jcr:primaryType="jnt:componentFolder">
+          <j:translation_en jcr:description="" jcr:language="en" jcr:primaryType="jnt:translation" jcr:title="Site Components"/>
+          <j:translation_it jcr:description="" jcr:language="it" jcr:primaryType="jnt:translation" jcr:title="Sito Web Components"/>
+          <j:translation_es jcr:description="" jcr:language="es" jcr:primaryType="jnt:translation" jcr:title="Sitio web Componentes"/>
+          <j:translation_fr jcr:description="" jcr:language="fr" jcr:primaryType="jnt:translation" jcr:title="Composants prêts à l'emploi"/>
+          <j:translation_pt jcr:description="" jcr:language="pt" jcr:primaryType="jnt:translation" jcr:title="Site Components"/>
+          <j:translation_de jcr:description="" jcr:language="de" jcr:primaryType="jnt:translation" jcr:title="Site-Komponenten"/>
+          <jnt:portal j:originWS="default" jcr:primaryType="jnt:simpleComponent">
+            <j:translation_en jcr:language="en" jcr:primaryType="jnt:translation" jcr:title="portal"/>
+            <j:translation_it jcr:language="it" jcr:primaryType="jnt:translation" jcr:title="portal"/>
+            <j:translation_es jcr:language="es" jcr:primaryType="jnt:translation" jcr:title="portal"/>
+            <j:translation_fr jcr:language="fr" jcr:primaryType="jnt:translation" jcr:title="portal"/>
+            <j:translation_pt jcr:language="pt" jcr:primaryType="jnt:translation" jcr:title="portal"/>
+            <j:translation_de jcr:language="de" jcr:primaryType="jnt:translation" jcr:title="portal"/>
+          </jnt:portal>
+          <jnt:scriptGadget j:originWS="default" jcr:primaryType="jnt:simpleComponent">
+            <j:translation_en jcr:language="en" jcr:primaryType="jnt:translation" jcr:title="scriptGadget"/>
+            <j:translation_it jcr:language="it" jcr:primaryType="jnt:translation" jcr:title="scriptGadget"/>
+            <j:translation_es jcr:language="es" jcr:primaryType="jnt:translation" jcr:title="scriptGadget"/>
+            <j:translation_fr jcr:language="fr" jcr:primaryType="jnt:translation" jcr:title="scriptGadget"/>
+            <j:translation_pt jcr:language="pt" jcr:primaryType="jnt:translation" jcr:title="scriptGadget"/>
+            <j:translation_de jcr:language="de" jcr:primaryType="jnt:translation" jcr:title="scriptGadget"/>
+          </jnt:scriptGadget>
+          <jnt:currentUserPortal j:originWS="default" jcr:mixinTypes="jmix:studioOnly" jcr:primaryType="jnt:simpleComponent">
+            <j:translation_en jcr:language="en" jcr:primaryType="jnt:translation" jcr:title="currentUserPortal"/>
+            <j:translation_it jcr:language="it" jcr:primaryType="jnt:translation" jcr:title="currentUserPortal"/>
+            <j:translation_es jcr:language="es" jcr:primaryType="jnt:translation" jcr:title="currentUserPortal"/>
+            <j:translation_fr jcr:language="fr" jcr:primaryType="jnt:translation" jcr:title="currentUserPortal"/>
+            <j:translation_pt jcr:language="pt" jcr:primaryType="jnt:translation" jcr:title="currentUserPortal"/>
+            <j:translation_de jcr:language="de" jcr:primaryType="jnt:translation" jcr:title="currentUserPortal"/>
+          </jnt:currentUserPortal>
+        </jmix:siteComponent>
+      </components>
     </portal>
   </templateSets>
 </content>
-
