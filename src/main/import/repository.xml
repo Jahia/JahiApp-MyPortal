@@ -63,7 +63,6 @@
           </custom-rows-960gs-1-col2>
         </user-portal>
       </templates>
-      <j:versionInfo j:deployementDate="2012-01-13T16:12:37.313+01:00" j:version="1.2-SNAPSHOT" jcr:primaryType="jnt:versionInfo"/>
       <components j:originWS="default" jcr:primaryType="jnt:componentFolder">
         <jmix:siteComponent j:originWS="default" jcr:primaryType="jnt:componentFolder">
           <j:translation_en jcr:description="" jcr:language="en" jcr:primaryType="jnt:translation" jcr:title="Site Components"/>
