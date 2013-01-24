@@ -1,17 +1,17 @@
-.bodywrapper #panel a:focus {
+ #panel a:focus {
 	outline: none;
 }
-.bodywrapper #panel {
+ #panel {
 	background: #dfe8f6;
 	display: none;
 }
-.bodywrapper .slide {
+ .slide {
 	margin: 0;
 	padding: 0;
 	border-top: solid 4px #99BBE8;
 	background: url(img/btn-slide.png) no-repeat center top;
 }
-.bodywrapper .btn-slide {
+ .btn-slide {
 	background: url(img/white-arrow.gif) no-repeat right -50px;
 	text-align: center;
 	width: 144px;
@@ -22,20 +22,20 @@
 	font: bold 120%/100% Arial, Helvetica, sans-serif;
 	text-decoration: none;
 }
-.bodywrapper a.btn-slide, .bodywrapper a.btn-slide:link, .bodywrapper a.btn-slide:visited{
+ a.btn-slide,  a.btn-slide:link,  a.btn-slide:visited{
 	text-decoration:none
 }
 
-.bodywrapper .active {
+ .active {
 	background-position: right 12px;
 }
 
 /*-----------------------*/
-.bodywrapper #panel li, .bodywrapper #panel ul {
+ #panel li,  #panel ul {
 	margin:0;
 	padding:0;
 }
-.bodywrapper #panel ul.panellist {
+ #panel ul.panellist {
 	padding:0;
 	height:180px;
 	border:1px solid #99BBE8;
@@ -45,12 +45,12 @@
 	overflow : -moz-scrollbars-vertical;
 	background-color:#fff
 }
-.bodywrapper #panel ul.panellist li {
+ #panel ul.panellist li {
 	cursor:pointer;
 	list-style:none;
 	padding:0px 5px;
 }
-.bodywrapper #panel ul.panellist li:hover {
+ #panel ul.panellist li:hover {
 	background-color: #eaeaea
 }
 

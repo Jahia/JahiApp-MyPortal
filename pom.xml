@@ -43,11 +43,11 @@
     <parent>
         <artifactId>jahia-modules</artifactId>
         <groupId>org.jahia.modules</groupId>
-        <version>6.6.0.0</version>
+        <version>6.7.0.0-SNAPSHOT</version>
     </parent>
     <groupId>org.jahia.modules</groupId>
     <artifactId>portal</artifactId>
-    <version>1.4-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <name>Jahia My Portal</name>
     <packaging>war</packaging>
     <description>This is a custom module for running on a Jahia server.</description>
@@ -60,17 +60,49 @@
 
     <repositories>
         <repository>
+            <id>jahia-public</id>
+            <name>Jahia Public Repository</name>
+            <url>https://devtools.jahia.com/nexus/content/groups/public</url>
             <releases>
                 <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
             </releases>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-            <id>jahiaRepository</id>
-            <name>Jahia's Maven Repository</name>
-            <url>http://maven.jahia.org/maven2</url>
         </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jahia-public</id>
+            <name>Jahia Public Repository</name>
+            <url>https://devtools.jahia.com/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <distributionManagement>
+        <repository>
+            <id>jahia-internal-releases</id>
+            <url>https://devtools.jahia.com/nexus/content/repositories/jahia-internal-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>jahia-internal-snapshots</id>
+            <url>https://devtools.jahia.com/nexus/content/repositories/jahia-internal-snapshots</url>
+        </snapshotRepository>
+        <site>
+            <id>jahia.website</id>
+            <url>file://${jahia.site.path}</url>
+        </site>
+    </distributionManagement>
 
     <build>
         <plugins>
