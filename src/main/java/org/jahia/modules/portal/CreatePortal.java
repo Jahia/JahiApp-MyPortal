@@ -40,7 +40,6 @@
 
 package org.jahia.modules.portal;
 
-import org.apache.bsf.utils.http.HttpScriptResponse;
 import org.apache.commons.lang.StringUtils;
 import org.jahia.bin.Action;
 import org.jahia.bin.ActionResult;
@@ -51,6 +50,7 @@ import org.jahia.services.render.Resource;
 import org.jahia.services.render.URLResolver;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 
@@ -77,6 +77,6 @@ public class CreatePortal extends Action {
              resource.getNode().getSession().save();
         JCRNodeWrapper newNode = resource.getNode().getNode(portalPath);
 
-        return new ActionResult(HttpScriptResponse.SC_OK, newNode.getPath(), null);
+        return new ActionResult(HttpServletResponse.SC_OK, newNode.getPath(), null);
     }
 }
